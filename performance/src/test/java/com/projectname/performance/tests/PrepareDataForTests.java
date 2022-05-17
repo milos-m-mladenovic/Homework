@@ -1,7 +1,7 @@
 package com.projectname.performance.tests;
 
 import com.projectname.api.client.calls.UserAPI;
-import com.projectname.api.client.data.model.users.create.CreateUserRequest;
+import com.projectname.api.client.data.model.template.create.CreateUserRequest;
 import com.projectname.api.client.utils.RandomStringGenerator;
 import com.projectname.api.tests.init.TestBase;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package com.projectname.api.client.data.model.users.create;
+package com.projectname.api.client.data.model.template.create;
 
 import com.google.gson.annotations.SerializedName;
 

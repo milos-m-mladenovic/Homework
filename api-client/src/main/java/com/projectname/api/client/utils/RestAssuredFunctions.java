@@ -41,10 +41,10 @@ public class RestAssuredFunctions {
                 .post(uri).then().extract().response();
     }
 
-    public static Response get(String uri) {
-        return given().contentType(ContentType.JSON).when()
-                .get(uri).then().extract().response();
-    }
+    //public static Response get(String uri) {
+    //    return given().contentType(ContentType.JSON).when()
+    //           .get(uri).then().extract().response();
+    //}
 
     //filepath should target resources folder; example: "src/test/resources/approved.jpg"
     //IMPORTANT: .multiPart("files[]", file) - "files[]" needs to replaced with parameter in your project
@@ -82,6 +82,11 @@ public class RestAssuredFunctions {
                 .put(uri).then().extract().response();
     }
 
+    public static Response put(Object body, String uri) {
+        String json = new GsonBuilder().setPrettyPrinting().create().toJson(body);
+        return given().contentType(ContentType.JSON).body(json).when().put(uri).then().extract().response();
+    }
+
    //if it is basic auth
     public static Response getWithBasicAuth(BasicAuth loginUser, String uri) {
         return given().auth().preemptive()
@@ -96,5 +101,21 @@ public class RestAssuredFunctions {
                 .contentType(ContentType.JSON)
                 .when()
                 .get(uri).then().extract().response();
+    }
+
+    public static Response get(String url) {
+        return given().contentType(ContentType.JSON).get(url);
+    }
+
+    public static Response post(String url, Object requestBody) {
+        return given().contentType(ContentType.JSON).body(requestBody).post(url).then().extract().response();
+    }
+
+    public static Response put(String url, Object requestBody) {
+        return given().contentType(ContentType.JSON).body(requestBody).put(url).then().extract().response();
+    }
+
+    public static Response delete(String url) {
+        return given().contentType(ContentType.JSON).delete(url);
     }
 }

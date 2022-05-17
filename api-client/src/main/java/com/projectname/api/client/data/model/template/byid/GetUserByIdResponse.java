@@ -1,9 +1,9 @@
-package com.projectname.api.client.data.model.users.byid;
+package com.projectname.api.client.data.model.template.byid;
 
 import com.google.gson.annotations.SerializedName;
 import com.projectname.api.client.annotations.ResponseRequiredField;
-import com.projectname.api.client.data.model.users.common.Data;
-import com.projectname.api.client.data.model.users.common.Support;
+import com.projectname.api.client.data.model.template.common.Data;
+import com.projectname.api.client.data.model.template.common.Support;
 
 import java.io.Serializable;
 

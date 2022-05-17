@@ -1,7 +1,7 @@
-package com.projectname.api.client.data.model.users.list;
+package com.projectname.api.client.data.model.template.list;
 
 import com.google.gson.annotations.SerializedName;
-import com.projectname.api.client.data.model.users.common.Support;
+import com.projectname.api.client.data.model.template.common.Support;
 
 import javax.xml.crypto.Data;
 import java.io.Serializable;

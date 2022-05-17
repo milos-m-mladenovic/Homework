@@ -1,9 +1,11 @@
 package com.projectname.api.client.calls;
 
 import com.projectname.api.client.constants.ApiEndpoints;
-import com.projectname.api.client.data.model.users.byid.GetUserByIdResponse;
-import com.projectname.api.client.data.model.users.create.CreateUserRequest;
-import com.projectname.api.client.data.model.users.create.CreateUserResponse;
+import com.projectname.api.client.data.model.template.byid.GetUserByIdResponse;
+import com.projectname.api.client.data.model.template.create.CreateUserRequest;
+import com.projectname.api.client.data.model.template.create.CreateUserResponse;
+import com.projectname.api.client.data.model.template.update.UpdateUserRequest;
+import com.projectname.api.client.data.model.template.update.UpdateUserResponse;
 import com.projectname.api.client.utils.GsonFunctions;
 import com.projectname.api.client.utils.ResponseValidation;
 import com.projectname.api.client.utils.RestAssuredFunctions;
@@ -24,6 +26,10 @@ public class UserAPI {
     public static ResponseValidation validateGetUserByIdResponse(String userId) {
         Response jsonResponse = RestAssuredFunctions.get(ApiEndpoints.users(userId));
         return GsonFunctions.verifyResponse(jsonResponse, GetUserByIdResponse.class);
+    }
+
+    public static UpdateUserResponse updateUser(UpdateUserRequest userRequest, String userId) {
+        return GsonFunctions.parseSuccessResponseToModel(RestAssuredFunctions.put(userRequest, ApiEndpoints.users(userId)), UpdateUserResponse.class);
     }
 
 //example for retrieving list as response

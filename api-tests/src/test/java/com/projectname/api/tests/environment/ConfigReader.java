@@ -1,5 +1,7 @@
 package com.projectname.api.tests.environment;
 
+import com.projectname.api.tests.init.TestBase;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,7 +33,10 @@ public class ConfigReader {
         System.out.println(currentEnv);
         //there is no test and staging env for example.com sample, so that's why by default we set PROD. In real example you would like to set it to your TEST env
         String env = currentEnv != null && !currentEnv.isEmpty() ? currentEnv : PROD;
-        String base_url = "https://" + env + "reqres.in/";
+        //String base_url = "https://" + env + "reqres.in/";
+        //String base_url = "https://fakerestapi.azurewebsites.net/api/v1/";
+        String base_url = "https://test-api.k6.io/";
+        https://test-api.k6.io/
         System.out.println(base_url);
         return base_url;
     }
