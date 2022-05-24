@@ -156,4 +156,32 @@ public class NavigationBarPage extends PageBase {
         return new DocsPage(driver, url, email, password);
     }
 
+    private WebElement getSignupButton() {
+        try {
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/a[5]"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new AssertionError("Could not find Signup button on Navigation bar page.", e);
+        }
+    }
+
+    public SignupPage openSignupPage() {
+        getSignupButton().click();
+        return new SignupPage(driver, url, email, password);
+    }
+
+    private WebElement getLoginButton() {
+        try {
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/a[4]"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new AssertionError("Could not find Login button on Navigation bar page.", e);
+        }
+    }
+
+    public UpdatePage openUpdatePage() {
+        getLoginButton().click();
+        return new UpdatePage(driver, url, email, password);
+    }
+
 }
